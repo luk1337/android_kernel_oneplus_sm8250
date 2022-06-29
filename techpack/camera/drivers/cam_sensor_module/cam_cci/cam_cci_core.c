@@ -7,7 +7,6 @@
 #include "cam_cci_core.h"
 #include "cam_cci_dev.h"
 #include "cam_cci_ctrl_interface.h"
-#define  DUMP_CCI_REGISTERS
 
 static int32_t cam_cci_convert_type_to_num_bytes(
 	enum camera_sensor_i2c_type type)
@@ -1842,7 +1841,7 @@ int32_t cam_cci_control_interface(void* control)
         break;
     case CAMERA_CCI_RELEASE:
         mutex_lock(&cci_dev->init_mutex);
-        rc = cam_cci_release(sd);
+        rc = cam_cci_release(sd, cci_ctrl_interface.cci_info->cci_i2c_master);
         mutex_unlock(&cci_dev->init_mutex);
         CAM_INFO(CAM_CCI, "cci release cmd,rc=%d",rc);
         break;
