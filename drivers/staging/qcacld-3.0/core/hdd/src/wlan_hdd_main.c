@@ -3903,7 +3903,9 @@ int hdd_wlan_start_modules(struct hdd_context *hdd_ctx, bool reinit)
 		 */
 		hdd_spectral_register_to_dbr(hdd_ctx);
 
+#ifdef WLAN_POWER_DEBUG
 		hdd_sysfs_create_driver_root_obj();
+#endif
 		hdd_sysfs_create_version_interface(hdd_ctx->psoc);
 		hdd_sysfs_create_powerstats_interface();
 		hdd_sysfs_dp_aggregation_create();
