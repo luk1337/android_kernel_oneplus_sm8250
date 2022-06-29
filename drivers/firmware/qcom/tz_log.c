@@ -1136,7 +1136,7 @@ static ssize_t tzdbgfs_read_unencrypted(struct file *file, char __user *buf,
 	int len = 0;
 //#ifdef OPLUS_FEATURE_SECURITY_COMMON
 	struct seq_file *seq = file->private_data;
-	int *tz_id = (int *)(seq->private);
+	int tz_id = *(int *)(seq->private);
 //else
 	//int tz_id = *(int *)(file->private_data);
 //#endif

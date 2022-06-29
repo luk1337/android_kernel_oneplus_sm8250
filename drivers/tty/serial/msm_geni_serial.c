@@ -1625,7 +1625,6 @@ static int stop_rx_sequencer(struct uart_port *uport)
 				return -EBUSY;
 			}
 		}
-	}
 
 		dma_rx_status = geni_read_reg_nolog(uport->membase,
 						SE_DMA_RX_IRQ_STAT);
